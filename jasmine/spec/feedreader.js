@@ -1,3 +1,14 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -120,10 +131,9 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-      it('has added entries', function(done) {
+      it('has added entries', function() {
         var entry = $('.feed').contents().find('.entry').size();
         expect(entry).not.toBe(0);
-        done();
       });
     });
 
@@ -138,9 +148,9 @@ $(function() {
       beforeEach(function(done) {
         loadFeed(1, function() {
           html = $('.feed').html();
-          done()
-        })
-      })
+          done();
+        });
+      });
 
       // This spec compares one feed's content against another feed's content and verifies that they aren't the same.
 
@@ -152,7 +162,7 @@ $(function() {
         loadFeed(0, function() {
           expect($('.feed').html()).not.toEqual(html);
           done();
-        })
+        });
       });
     });
 }());
