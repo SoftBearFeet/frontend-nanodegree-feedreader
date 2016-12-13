@@ -87,15 +87,16 @@ $(function() {
             // Before each spec runs, the beforeEach function toggles the menu-hidden class
 
             beforeEach(function() {
-              $('.menu-hidden').click();
+              console.log('clicking button');
+              $('.menu-icon-link').click();
             });
 
             it('should display the menu', function() {
-              expect(slideMenu.css('transform')).not.toBe('slideMenu.css("transform", "translate3d(-12em, 0, 0)")');
+              expect(body.hasClass('menu-hidden')).toBe(false);
             });
 
             it('should hide the menu after it was clicked', function() {
-              expect(slideMenu.css('transform')).not.toBe('slideMenu.css("transform", "translate3d(0, 0, 0)")');
+              expect(body.hasClass('menu-hidden')).toBe(true);
             });
           });
     });
