@@ -87,13 +87,7 @@ $(function() {
             // Before each spec runs, the beforeEach function toggles the menu-hidden class
 
             beforeEach(function() {
-              body.toggleClass('menu-hidden');
-            });
-
-            // After each spec runs, the afterEach function toggles the menu-hidden class back.
-
-            afterEach(function() {
-              body.toggleClass('menu-hidden');
+              $('.menu-hidden').click();
             });
 
             it('should display the menu', function() {
