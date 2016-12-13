@@ -26,6 +26,8 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
+        // This spec loops through the allFeeds object and verifies that it URL's that are defined and that they aren't empty.
+
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -37,6 +39,7 @@ $(function() {
             }
         });
 
+        // This spec loops through the allFeeds object and verifies that Names are defined and that they aren't empty.
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -52,10 +55,14 @@ $(function() {
     });
 
 
+    // These suite will verify the state of menu when the page loads and it also verifies that when the menu is clicked, the menu will be visible/hidden.
+
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
 
         var body = $('body');
+
+        // The spec below verifies that the menu page is hidden by deault when the page loads.
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
@@ -66,6 +73,8 @@ $(function() {
            expect(body.hasClass('menu-hidden')).toBe(true);
          });
 
+        //  The spec below verifies that when the menu icon is clicked that it will become visible and hidden.
+
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
@@ -75,9 +84,13 @@ $(function() {
 
             var slideMenu = $('.slide-menu');
 
+            // Before each spec runs, the beforeEach function toggles the menu-hidden class
+
             beforeEach(function() {
               body.toggleClass('menu-hidden');
             });
+
+            // After each spec runs, the afterEach function toggles the menu-hidden class back.
 
             afterEach(function() {
               body.toggleClass('menu-hidden');
@@ -93,13 +106,18 @@ $(function() {
           });
     });
 
+    // The suite below verifies that the initial feed populates with information for the user to click on.
+
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
 
+      // Before each spec runs, the beforeEach function handles request it will wait till the request is complete
 
       beforeEach(function(done) {
         loadFeed(0, done);
       });
+
+      // The spec gathers how many divs are populated with the 'entry' class and verifies that there is more than '0'.
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -114,9 +132,13 @@ $(function() {
       });
     });
 
+    // The suite below verifies that when a new feed is loaded, that the conent has actually changed.
+
     /* TODO: Write a new test suite named "New Feed Selection"*/
     describe('New Feed Selection', function() {
       var html;
+
+      // Before each spec runs, the beforeEach function handles request it will wait till the request is complete
 
       beforeEach(function(done) {
         loadFeed(1, function() {
@@ -125,7 +147,8 @@ $(function() {
         })
       })
 
-
+      // This spec compares one feed's content against another feed's content and verifies that they aren't the same.
+      
       /* TODO: Write a test that ensures when a new feed is loaded
        * by the loadFeed function that the content actually changes.
        * Remember, loadFeed() is asynchronous.
